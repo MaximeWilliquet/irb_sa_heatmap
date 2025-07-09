@@ -61,7 +61,7 @@ pd_val = pd_input / 100  # Convert to decimal
 floor_label = st.selectbox("Select Output Floor", options=["0%", "50%", "55%", "60%", "65%", "70%", "72.5%"], index=5)
 output_floor = float(floor_label.strip('%')) / 100
 
-ltv_range = np.arange(0.0, 1.51, 0.20)
+ltv_range = np.arange(0.0, 1.11, 0.10)
 lgd_range = np.arange(0.0, 0.81, 0.10)
 
 impact_matrix = generate_impact_matrix(pd_val, lgd_range, ltv_range, output_floor)
