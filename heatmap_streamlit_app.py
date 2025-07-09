@@ -58,7 +58,7 @@ corr = 0.15  # Fixed for mortgages
 col1, col2 = st.columns([2, 1])
 
 with col1:
-    pd_slider = st.slider("PD (%)", min_value=0.01, max_value=10.00, value=0.69, step=0.01)
+    pd_slider = st.slider("PD (%)", min_value=0.01, max_value=5.00, value=0.69, step=0.01)
 
 with col2:
     pd_input = st.number_input("Or enter PD (%)", min_value=0.01, max_value=10.00, value=pd_slider, step=0.01)
