@@ -54,8 +54,21 @@ def plot_impact_heatmap(impact_matrix, pd_value, output_floor_label):
 st.title("IRB vs SA Capital Impact Heatmap (with Output Floor)")
 
 corr = 0.15  # Fixed for mortgages
-pd_input = st.number_input("Enter PD (%)", min_value=0.01, max_value=100.0, value=0.69, step=0.01)
-pd_val = pd_input / 100  # Convert to decimal
+# Create two columns side by side
+col1, col2 = st.columns([2, 1])
+
+with col1:
+    pd_slider = st.slider("PD (%)", min_value=0.01, max_value=10.00, value=0.69, step=0.01)
+
+with col2:
+    pd_input = st.number_input("Or enter PD (%)", min_value=0.01, max_value=10.00, value=pd_slider, step=0.01)
+
+# Synchronize both inputs — use number input as final value
+# If user changes input, it overrides the slider
+if abs(pd_input - pd_slider) > 1e-6:
+    pd_val = pd_input / 100
+else:
+    pd_val = pd_slider / 100
 
 # Output floor dropdown
 floor_label = st.selectbox("Select Output Floor", options=["0%", "50%", "55%", "60%", "65%", "70%", "72.5%"], index=5)
