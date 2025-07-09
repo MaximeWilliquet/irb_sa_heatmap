@@ -41,7 +41,7 @@ def plot_impact_heatmap(impact_matrix, pd_value, output_floor_label):
     ax.set_yticks(ltv_range * 100)
     ax.set_xlabel("LGD (%)")
     ax.set_ylabel("LTV (%)")
-    ax.set_title(f"Capital Impact (Floored IRB - SA)\nPD = {pd_value*100:.2f}%, Output Floor = {output_floor_label}", fontsize=14)
+    ax.set_title(f"Capital Impact (IRB - SA)\nPD = {pd_value*100:.2f}%, Output Floor = {output_floor_label}", fontsize=14)
     fig.colorbar(im, ax=ax, label="Impact")
 
     for i in range(len(ltv_range)):
