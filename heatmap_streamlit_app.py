@@ -61,7 +61,7 @@ with col1:
     pd_slider = st.slider("PD (%)", min_value=0.01, max_value=3.00, value=0.69, step=0.01)
 
 with col2:
-    pd_input = st.number_input("Or enter PD (%)", min_value=0.01, max_value=10.00, value=pd_slider, step=0.01)
+    pd_input = st.number_input("Or enter PD (%)", min_value=0.01, max_value=3.00, value=pd_slider, step=0.01)
 
 # Synchronize both inputs — use number input as final value
 # If user changes input, it overrides the slider
